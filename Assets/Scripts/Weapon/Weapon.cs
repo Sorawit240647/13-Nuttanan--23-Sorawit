@@ -17,7 +17,7 @@ public abstract class Weapon : MonoBehaviour
             damage = value;
         }
     }
-    [SerializeField] private int BulletCount;
+
 
     protected IShootable shooter;
 

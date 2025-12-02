@@ -28,7 +28,7 @@ public class BulletPng : Weapon
 
         if (character is Enemy)
             Debug.Log(" Bullet Hit!!");
-        character.TakeDamage(this.Damage,character);
+        character.TakeDamage(this.Damage);
         Destroy(this);
     }
 }

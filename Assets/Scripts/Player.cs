@@ -14,20 +14,21 @@ public class Player : Character, IShootable
     [field: SerializeField] public float BulletTimer { get; set; }
     [field: SerializeField] public float JumpCount { get; set; }
     [field: SerializeField] public int BulletCount { get; set; }
-    [SerializeField] TextMeshProUGUI BulletText, JumpText;
-    public float maxSpeed = 10f;
+    [SerializeField] TextMeshProUGUI bulletText, jumpText;
+    public float MaxSpeed = 10f;
 	bool facingRight = true;
+	public float JumpForce = 700.0f;
 
-	public float jumpForce = 700.0f;
 
-	// Use this for initialization
-	void Start () 
+
+
+	void Start ()
 	{
         Init(1);
         BulletSpawnTime = 0.5f;
         BulletTimer = 2.0f;
         BulletCount = 3;
-        JumpCount = 100000;
+        JumpCount = 3;
         UpdateBulletText();
         UpdateJumpText();
     }
@@ -36,7 +37,7 @@ public class Player : Character, IShootable
 	{
 		if(Input.GetKeyDown(KeyCode.Space) && JumpCount > 0)
 		{
-			rb.AddForce(new Vector2(0, jumpForce));
+			rb.AddForce(new Vector2(0, JumpForce));
 			JumpCount -= 1;
             UpdateJumpText();
         }
@@ -53,7 +54,7 @@ public class Player : Character, IShootable
 
 		float move = Input.GetAxis("Horizontal");
 
-		rb.velocity = new Vector2(move*maxSpeed, rb.velocity.y);
+		rb.velocity = new Vector2(move*MaxSpeed, rb.velocity.y);
 
 		if(move > 0 && !facingRight)
 			Flip();
@@ -85,9 +86,9 @@ public class Player : Character, IShootable
             Destroy(this.gameObject);
         }
     }
-    public void OnHitWith(Finish character)
+    public void OnHitWith(Finish type)
     {
-        if (character is Finish)
+        if (type is Finish)
         {
             Debug.Log("You Win!");
             Destroy(this.gameObject);
@@ -113,10 +114,10 @@ public class Player : Character, IShootable
 
     void UpdateBulletText()
     {
-        BulletText.text = $"x{BulletCount}";
+        bulletText.text = $"x{BulletCount}";
     }
     void UpdateJumpText()
     {
-        JumpText.text = $"x{JumpCount}";
+        jumpText.text = $"x{JumpCount}";
     }
 }

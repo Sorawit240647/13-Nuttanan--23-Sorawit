@@ -5,7 +5,6 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour
 {
-    //public HealthBar healthBar;
     [SerializeField] private int health;
     public int Health
     {
@@ -18,17 +17,16 @@ public abstract class Character : MonoBehaviour
             health = value;
         }
     }
-    public Animator anim;
-    public Rigidbody2D rb;
+    protected Animator anim;
+    protected Rigidbody2D rb;
 
     public virtual void Init(int newHealth)
     {
         Health = newHealth;
-        //healthBar.SetMaxHealth(newHealth);
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
-    public bool IsDead(Character character)
+    public bool IsDead()
     {
         if (health <= 0)
         {
@@ -37,10 +35,9 @@ public abstract class Character : MonoBehaviour
         }
         else return false;
     }
-    public void TakeDamage(int _damage, Character character)
+    public void TakeDamage(int _damage)
     {
         Health -= _damage;
-        //healthBar.UpdateHealthBar(Health);
-        IsDead(character);
+        IsDead();
     }
 }

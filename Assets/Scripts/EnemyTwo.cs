@@ -10,7 +10,6 @@ public class EnemyTwo : Enemy, IShootable
 
     [field: SerializeField] public GameObject Bullet { get; set; }
     [field: SerializeField] public Transform BulletSpawnPoint { get; set; }
-
     [field: SerializeField] public float BulletSpawnTime { get; set; }
     [field: SerializeField] public float BulletTimer { get; set; }
     void Start()

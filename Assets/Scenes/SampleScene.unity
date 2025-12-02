@@ -15762,7 +15762,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 466742735}
     - target: {fileID: 4761409693623524486, guid: bf4367b0457287444905363939e640f6, type: 3}
+      propertyPath: jumpText
+      value: 
+      objectReference: {fileID: 466742735}
+    - target: {fileID: 4761409693623524486, guid: bf4367b0457287444905363939e640f6, type: 3}
       propertyPath: BulletText
+      value: 
+      objectReference: {fileID: 1034795020}
+    - target: {fileID: 4761409693623524486, guid: bf4367b0457287444905363939e640f6, type: 3}
+      propertyPath: bulletText
       value: 
       objectReference: {fileID: 1034795020}
     - target: {fileID: 4903646456904568253, guid: bf4367b0457287444905363939e640f6, type: 3}
